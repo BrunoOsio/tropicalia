@@ -102,27 +102,6 @@ const CreateCandidates = () => {
     avaliableParties.splice(randomNumber5, 1);
   }
 
-  function findDuplicateNames(): string[] {
-    const seenNames = new Set();
-    const duplicateNames: string[] = [];
-
-    for (const candidate of [
-      candidate1,
-      candidate2,
-      candidate3,
-      candidate4,
-      candidate5,
-    ]) {
-      if (seenNames.has(candidate.name)) {
-        duplicateNames.push(candidate.name);
-      } else {
-        seenNames.add(candidate.name);
-      }
-    }
-
-    return duplicateNames;
-  }
-
   const isCandidate1Duplicated =
     candidates.filter((candidate) => candidate.name == candidate1.name).length >
     1;
@@ -179,7 +158,8 @@ const CreateCandidates = () => {
     isCandidate4Duplicated ||
     isCandidate5Duplicated;
 
-  const isStartButtonDisabled = candidate1.party == "Sem Partido" || isRandomizeDisabled;
+  const isStartButtonDisabled =
+    candidate1.party == "Sem Partido" || isRandomizeDisabled;
   return (
     <>
       <Container>
